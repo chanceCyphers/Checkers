@@ -13,7 +13,7 @@ public class GameGUI {
 	public GameGUI() {
 		drawPanel = new BoardPanel();
 		
-		gameFrame = new JFrame();		
+		gameFrame = new JFrame();
 		gameFrame.add(drawPanel);
 		
 		gameFrame.setTitle("Checkers");
