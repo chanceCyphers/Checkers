@@ -196,7 +196,7 @@ public class GameStateManager {
         }
         //if black and moved to bottom row and not a king, put black king in 'to'
         if (squareState == 1 && move.yTo == 0){
-            gameState.setStateOfSquare(5, move.xTo, move.yTo);
+            gameState.setStateOfSquare(3, move.xTo, move.yTo);
         }
         //if you move more than one space (jump)
         if (Math.abs(move.yFrom - move.yTo) > 1 || Math.abs(move.xFrom - move.xTo) > 1 ){
