@@ -6,3 +6,4 @@ public class Checkers {
 		game.startGame();
 	}
 }
+//////////////////////////
