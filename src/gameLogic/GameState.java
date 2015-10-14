@@ -28,4 +28,5 @@ public class GameState {
 	void setStateOfSquare(int state, int column, int row) {
 		board[column][row] = state;
 	}
+	
 }

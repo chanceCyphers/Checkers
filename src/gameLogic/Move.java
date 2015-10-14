@@ -11,4 +11,38 @@ public class Move {
 		this.yTo = yTo;
 	}
 	
+	//set methods
+	public void setxFrom(int xFrom){
+		this.xFrom=xFrom;
+	}
+	
+	public void setyFrom(int yFrom){
+		this.yFrom = yFrom;
+	}
+	
+	public void setxTo(int xTo){
+		this.xTo=xTo;
+	}
+	
+	public void setyTo(int yTo){
+		this.yTo=yTo;
+	}
+	
+	//get methods
+	public int getxFrom(){
+		return xFrom;
+	}
+	
+	public int getyFrom(){
+		return yFrom;
+	}
+	
+	public int getxTo(){
+		return xTo;
+	}
+	
+	public int getyTo(){
+		return yTo;
+	}
+	
 }
