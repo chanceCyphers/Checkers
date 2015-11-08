@@ -1,11 +1,22 @@
 package gameLogic;
 
+import java.util.ArrayList;
+
 public class GameStateManager {
 
 	private GameState gameState;
+	private ArrayList<GamePiece> blackPieces;
+	private ArrayList<GamePiece> redPieces;
+	private ArrayList<GamePiece> blackKings;
+	private ArrayList<GamePiece> redKings;
 	
 	public GameStateManager(GameState gameState) {
 		this.gameState = gameState;
+		blackPieces = new ArrayList<GamePiece>();
+		redPieces = new ArrayList<GamePiece>();
+		blackKings = new ArrayList<GamePiece>();
+		redKings = new ArrayList<GamePiece>();
+		
 		setNewGame();
 	}
 	
@@ -20,6 +31,55 @@ public class GameStateManager {
 		gameState.setStateOfSquare(squareState, move.xTo, move.yTo);
 		
 		return true;
+	}
+	
+	public ArrayList<GamePiece> getBlackPieces() {
+		blackPieces.clear();
+		for (int i = 0 ; i < 8 ; i++) {
+			for (int j = 0 ; j < 8 ; j++) {
+				if (gameState.getStateOfSquare(i, j) != GameState.BLACK) {
+					blackPieces.add(new GamePiece(i, j));
+				} 
+			}
+		}		
+		return blackPieces;
+	}
+	
+	public ArrayList<GamePiece> getRedPieces() {
+		redPieces.clear();
+		for (int i = 0 ; i < 8 ; i++) {
+			for (int j = 0 ; j < 8 ; j++) {
+				if (gameState.getStateOfSquare(i, j) != GameState.RED) {
+					redPieces.add(new GamePiece(i, j));
+				} 
+			}
+		}		
+		return redPieces;
+	}
+	
+	
+	public ArrayList<GamePiece> getRedKings() {
+		redKings.clear();
+		for (int i = 0 ; i < 8 ; i++) {
+			for (int j = 0 ; j < 8 ; j++) {
+				if (gameState.getStateOfSquare(i, j) != GameState.RED_KING) {
+					redKings.add(new GamePiece(i, j));
+				} 
+			}
+		}		
+		return redKings;
+	}
+	
+	public ArrayList<GamePiece> getBlackKings() {
+		blackKings.clear();
+		for (int i = 0 ; i < 8 ; i++) {
+			for (int j = 0 ; j < 8 ; j++) {
+				if (gameState.getStateOfSquare(i, j) != GameState.BLACK_KING) {
+					blackKings.add(new GamePiece(i, j));
+				} 
+			}
+		}		
+		return blackKings;
 	}
 	
 	public boolean checkWin() {

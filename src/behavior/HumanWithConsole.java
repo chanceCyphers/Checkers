@@ -20,7 +20,4 @@ public class HumanWithConsole implements MoveStrategy{
 		
 		if (!success) System.out.println("made a bad move");
 	}
-
-	
-	
 }

@@ -1,7 +1,7 @@
 package gui;
 
 import gameLogic.GameState;
-import gameLogic.Pair;
+import gameLogic.GamePiece;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,10 +14,10 @@ import javax.swing.JPanel;
 
 public class BoardPanel extends JPanel {
 	
-	private ArrayList<Pair> blackPieces;
-	private ArrayList<Pair> whitePieces;
-	private ArrayList<Pair> blackKings;
-	private ArrayList<Pair> whiteKings;
+	private ArrayList<GamePiece> blackPieces;
+	private ArrayList<GamePiece> whitePieces;
+	private ArrayList<GamePiece> blackKings;
+	private ArrayList<GamePiece> whiteKings;
 	
 	private BufferedImage blackPieceImg;
 	private BufferedImage whitePieceImg;
@@ -26,10 +26,10 @@ public class BoardPanel extends JPanel {
 	
 	public BoardPanel() {
 		super();
-		blackPieces = new ArrayList<Pair>();
-		whitePieces = new ArrayList<Pair>();
-		blackKings = new ArrayList<Pair>();
-		whiteKings = new ArrayList<Pair>();
+		blackPieces = new ArrayList<GamePiece>();
+		whitePieces = new ArrayList<GamePiece>();
+		blackKings = new ArrayList<GamePiece>();
+		whiteKings = new ArrayList<GamePiece>();
 		
 		try {
 			blackPieceImg = ImageIO.read(new File("res/B_man.png"));
@@ -54,16 +54,16 @@ public class BoardPanel extends JPanel {
 				case GameState.EMPTY:
 					break;
 				case GameState.BLACK:
-					blackPieces.add(new Pair(i, j));
+					blackPieces.add(new GamePiece(i, j));
 					break;
 				case GameState.RED:
-					whitePieces.add(new Pair(i, j));
+					whitePieces.add(new GamePiece(i, j));
 					break;					
 				case GameState.BLACK_KING:
-					blackKings.add(new Pair(i, j));
+					blackKings.add(new GamePiece(i, j));
 					break;
 				case GameState.RED_KING:
-					whiteKings.add(new Pair(i, j));
+					whiteKings.add(new GamePiece(i, j));
 					break;
 				}
 			}
@@ -96,25 +96,25 @@ public class BoardPanel extends JPanel {
 		int squareWidth = getWidth() / 8;
 		int padding = (squareWidth - blackPieceImg.getWidth()) / 2;
 		
-		for (Pair piece : blackPieces) {
+		for (GamePiece piece : blackPieces) {
 			g.drawImage(blackPieceImg, 
 					(piece.x * squareWidth) + padding, 
 					getHeight() - squareHeight - (piece.y * squareHeight) + padding, 
 					null);  
 		}
-		for (Pair piece : whitePieces) {
+		for (GamePiece piece : whitePieces) {
 			g.drawImage(whitePieceImg, 
 					(piece.x * squareWidth) + padding, 
 					getHeight() - squareHeight - (piece.y * squareHeight) + padding, 
 					null);   
 		}
-		for (Pair piece : whiteKings) {
+		for (GamePiece piece : whiteKings) {
 			g.drawImage(whiteKingImg, 
 					(piece.x * squareWidth) + padding, 
 					getHeight() - squareHeight - (piece.y * squareHeight) + padding, 
 					null);   
 		}
-		for (Pair piece : blackKings) {
+		for (GamePiece piece : blackKings) {
 			g.drawImage(blackKingImg, 
 					(piece.x * squareWidth) + padding, 
 					getHeight() - squareHeight - (piece.y * squareHeight) + padding, 
